@@ -1,0 +1,511 @@
+fileFormatVersion: 2
+guid: 51df94f7eb96e6f41ae0da0fb12d6774
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: up_attack_6
+    21300002: up_attack_1
+    21300004: up_attack_2
+    21300006: up_attack_3
+    21300008: up_attack_4
+    21300010: up_attack_5
+    21300012: tornado_attack
+    21300014: tornado_attack_2
+    21300016: tornado_attack_3
+    21300018: tanjirou2_0
+    21300020: tornado_1
+    21300022: tornado_3
+    21300024: tornado_4
+    21300026: tornado_5
+    21300028: tornado_6
+    21300030: up1
+    21300032: up2
+    21300034: up3
+    21300036: up4
+    21300038: up5
+    21300040: up6
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: up_attack_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1234
+        width: 66
+        height: 70
+      alignment: 9
+      pivot: {x: 0.33896035, y: 0.38092217}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4fdf91cc1e2e8458c0324c5c339846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up_attack_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1234
+        width: 52
+        height: 70
+      alignment: 9
+      pivot: {x: 0.42462012, y: 0.3831351}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708b904518a47704e9c0937ad806e404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up_attack_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1293
+        width: 59
+        height: 1
+      alignment: 9
+      pivot: {x: 0.35934344, y: 0.44164723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9299a1048ab7f3e409ea57d8569e6dbd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up_attack_5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1227
+        width: 52
+        height: 77
+      alignment: 9
+      pivot: {x: 0.42482758, y: 0.389501}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16569e993a7874142b77cddf5e05ee47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_attack
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 1030
+        width: 2
+        height: 116
+      alignment: 9
+      pivot: {x: 0.5333702, y: 0.5837264}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20469e2b10a6ecd489e6540cff9dbbb1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_attack_2
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 614
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0acce74a3eaff824db6deea1e4e327e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_attack_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 612
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570fd585b1679744986fe12fcd10bacc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanjirou2_0
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 2039
+        width: 33
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2d869dc2d463b42ac5761416605adc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_1
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 1396
+        width: 64
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5723276, y: 0.58421654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526a1523c7a5d154b8eb5b563795372f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_3
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 1270
+        width: 60
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5832652, y: 0.58751196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da295184b69145a479258ee9d8c1d227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_4
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 835
+        width: 56
+        height: 53
+      alignment: 9
+      pivot: {x: 0.5587169, y: 0.603374}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84018a7ee76684f4db397b36671f3d41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 453
+        width: 32
+        height: 46
+      alignment: 9
+      pivot: {x: 0.61796093, y: 0.55079985}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430d01ae583b75740a517ef030d6339f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tornado_6
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 451
+        width: 46
+        height: 48
+      alignment: 9
+      pivot: {x: 0.34504235, y: 0.5472088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05d948ea82319a46a99161f90af77d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1078
+        width: 42
+        height: 50
+      alignment: 9
+      pivot: {x: 0.71707624, y: 0.507937}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5ea65a7043a75488f5bd15e34b7f78
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1073
+        width: 66
+        height: 70
+      alignment: 9
+      pivot: {x: 0.36518583, y: 0.37974155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf370198eeade644afb9390a49ffd92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up3
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1073
+        width: 52
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4758559, y: 0.3806013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f081ce46c67e43b40a92216dfc7adb4f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up4
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1066
+        width: 59
+        height: 77
+      alignment: 9
+      pivot: {x: 0.4291537, y: 0.44017127}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e85a2f904015d46832daf20351b1da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up5
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1066
+        width: 52
+        height: 77
+      alignment: 9
+      pivot: {x: 0.49254668, y: 0.38907295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10cfd3c59dbe8f48865356491ec9319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: up6
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 1066
+        width: 52
+        height: 77
+      alignment: 9
+      pivot: {x: 0.53323776, y: 0.38907614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 183e6bc9f387d7a49bd8c81366688e69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c2bb1ad443dc0294b909e101e9ca5e50
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
