@@ -5,13 +5,13 @@ using UnityEngine;
 public class IdleCollider : MonoBehaviour
 {
     // Start is called before the first frame update
-    PlayerControl script;
+    Player script;
     public LayerMask ignore;
 
     int colliderLayer;
     void Start()
     {
-        script = gameObject.GetComponentInParent<PlayerControl>();
+        script = gameObject.GetComponentInParent<Player>();
         colliderLayer = gameObject.layer;
         
     }

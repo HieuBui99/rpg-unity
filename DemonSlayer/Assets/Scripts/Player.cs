@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+public class Player: MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float jumpForce = 100f;
@@ -36,6 +36,12 @@ public class PlayerControl : MonoBehaviour
     float skillIICD = 0f;
     Vector2 dashSpeed = new Vector2(15, 0);
 
+    int platformLayer;
+    int idleColliderLayer;
+    int jumpingColliderLayer;
+    int runningColliderLayer;
+    int playerLayer;
+
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -49,7 +55,11 @@ public class PlayerControl : MonoBehaviour
         //{
         //    if (clip.name == "Skill2") Debug.Log(clip.length);
         //}
-
+        platformLayer = LayerMask.NameToLayer("Platform");
+        idleColliderLayer = LayerMask.NameToLayer("IdleCollider");
+        jumpingColliderLayer = LayerMask.NameToLayer("JumpingCollider");
+        runningColliderLayer = LayerMask.NameToLayer("RunningCollider");
+        playerLayer = gameObject.layer;
     }
     void Update()
     {
@@ -151,6 +161,10 @@ public class PlayerControl : MonoBehaviour
             vy = 0;
             body.AddForce(new Vector2(0, jumpForce));
         }
+        Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, (vy > 0.0f));
+        Physics2D.IgnoreLayerCollision(jumpingColliderLayer, platformLayer, (vy > 0.0f));
+        Physics2D.IgnoreLayerCollision(runningColliderLayer, platformLayer, (vy > 0.0f));
+        Physics2D.IgnoreLayerCollision(idleColliderLayer, platformLayer, (vy > 0.0f));
 
     }
     void FixedUpdate()

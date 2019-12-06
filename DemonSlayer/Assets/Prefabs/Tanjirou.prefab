@@ -845,10 +845,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1320521077989485330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feca5c2ffe5b9ff4fb878f313c30a2fe, type: 3}
+  m_Script: {fileID: 11500000, guid: e4da8671f1776af41a229e827ca3deca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 10
   jumpForce: 700
   groundCheck: {fileID: 1737000630}
   groundCheckLeft: {fileID: 1195361329}
@@ -856,7 +856,7 @@ MonoBehaviour:
   firePoint: {fileID: 1707371187}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8704
   tornado: {fileID: 3550109177390043771, guid: 67618703bf52cd14fa321dae8a97b0de, type: 3}
   lightHitBox: {fileID: 1383558209225140541}
   heavyHitBox: {fileID: 2116565332}

@@ -21,7 +21,7 @@ TagManager:
   - IdleCollider
   - JumpingCollider
   - RunningCollider
-  - 
+  - Platform
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3915544065
+    locked: 0
+  - name: Enemy
+    uniqueID: 2943507113
     locked: 0
