@@ -6,14 +6,14 @@ public class JumpingCollider : MonoBehaviour
 {
     // Start is called before the first frame update
     Player script;
-    public LayerMask ignore;
+    public int enemyLayer;
 
     int colliderLayer;
     void Start()
     {
         script = gameObject.GetComponentInParent<Player>();
         colliderLayer = gameObject.layer;
-
+        enemyLayer = LayerMask.NameToLayer("Enemy");
     }
 
     // Update is called once per frame
@@ -26,6 +26,7 @@ public class JumpingCollider : MonoBehaviour
             {
                 if (!script.isGrounded && !script.isRunning)
                 {
+                    Physics2D.IgnoreLayerCollision(colliderLayer, enemyLayer, script.invincible);
                     collider.enabled = true;
                 }
                 else
@@ -37,6 +38,7 @@ public class JumpingCollider : MonoBehaviour
             {
                 if (!script.isGrounded && !script.isRunning)
                 {
+                    Physics2D.IgnoreLayerCollision(colliderLayer, enemyLayer, script.invincible);
                     gameObject.GetComponent<CircleCollider2D>().enabled = true;
                 }
                 else

@@ -6,6 +6,8 @@ public class Player: MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float jumpForce = 100f;
+    public float playerHealth = 5f;
+    public float baseAttack = 2f;
 
     public Transform groundCheck;
     public Transform groundCheckLeft;
@@ -27,9 +29,11 @@ public class Player: MonoBehaviour
 
     public bool isRunning = false;
     public bool isGrounded = true;
+    public bool invincible = false;
     bool doingSkill = false;
     bool facingRight = true;
     bool isAttacking = false;
+    bool canMove = true;
 
     float upAttackCD = 0f;
     float skillICD = 0f;
@@ -64,7 +68,7 @@ public class Player: MonoBehaviour
     void Update()
     {
         //Up Attack
-        if ((Input.GetKey(KeyCode.UpArrow)) && !isAttacking && isGrounded && Input.GetAxisRaw("Horizontal")==0)
+        if ((Input.GetKey(KeyCode.UpArrow)) && !isAttacking && isGrounded && Input.GetAxisRaw("Horizontal")==0 && canMove)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
@@ -79,29 +83,29 @@ public class Player: MonoBehaviour
 
         }
         //Heavy Attack
-        else if (Input.GetKeyDown(KeyCode.G) && !isAttacking && !doingSkill && isGrounded)
+        else if (Input.GetKeyDown(KeyCode.G) && !isAttacking && !doingSkill && isGrounded && canMove)
         {
             animator.Play("Attack1");
-            StartCoroutine(LightAttackCoolDown(0.2f));
+            StartCoroutine(HeavyAttackCoolDown(0.2f));
                 
         }
         //Light Attack
-        else if (Input.GetKeyDown(KeyCode.D) && !isAttacking && !doingSkill)
+        else if (Input.GetKeyDown(KeyCode.D) && !isAttacking && !doingSkill && canMove)
         {
             isAttacking = true;
             if (!isGrounded)
             {
                 animator.Play("AirAttack");
-                StartCoroutine(HeavyAttackCoolDown(0.1f));
+                StartCoroutine(LightAttackCoolDown(0.1f));
             }
             else
             {
                 animator.Play("Attack2");
-                StartCoroutine(HeavyAttackCoolDown(0.2f));
+                StartCoroutine(LightAttackCoolDown(0.1f));
             }
         }
         //Skill 2
-        else if (Input.GetKeyDown(KeyCode.S) && !isAttacking && !doingSkill && isGrounded)
+        else if (Input.GetKeyDown(KeyCode.S) && !isAttacking && !doingSkill && isGrounded && canMove)
         {
             if (skillIICD <=0)
             {
@@ -109,12 +113,12 @@ public class Player: MonoBehaviour
             }
         }
         //Skill 1
-        else if (Input.GetKeyDown(KeyCode.A) && !isAttacking && !doingSkill)
+        else if (Input.GetKeyDown(KeyCode.A) && !isAttacking && !doingSkill && canMove)
         {
             if (skillICD <=0)
             {
                 //StartCoroutine(DoSkill1(0.35f));
-                StartCoroutine(MoveToPosition(transform.position + new Vector3(6f, 0, 0) * transform.localScale.x, 0.35f));
+                StartCoroutine(DoSkill1(transform.position + new Vector3(6f, 0, 0) * transform.localScale.x, 0.35f));
             }
         }
 
@@ -156,7 +160,7 @@ public class Player: MonoBehaviour
         animator.SetBool("Grounded", isGrounded);
 
         vy = body.velocity.y;
-        if (isGrounded && Input.GetButtonDown("Jump") && !isAttacking)
+        if (isGrounded && Input.GetButtonDown("Jump") && !isAttacking && canMove)
         {
             vy = 0;
             body.AddForce(new Vector2(0, jumpForce));
@@ -169,13 +173,16 @@ public class Player: MonoBehaviour
     }
     void FixedUpdate()
     {
-        if ((!isAttacking && isGrounded) || (isAttacking && !isGrounded) || (!isAttacking && !isGrounded))
+        if (canMove)
         {
-            if (!doingSkill) body.velocity = new Vector2(vx * moveSpeed, vy);
-        }
-        else
-        {
-            if (!doingSkill) body.velocity = new Vector2(0, vy);
+            if ((!isAttacking && isGrounded) || (isAttacking && !isGrounded) || (!isAttacking && !isGrounded))
+            {
+                if (!doingSkill) body.velocity = new Vector2(vx * moveSpeed, vy);
+            }
+            else
+            {
+                if (!doingSkill) body.velocity = new Vector2(0, vy);
+            }
         }
         
            
@@ -205,30 +212,32 @@ public class Player: MonoBehaviour
     }
 
 
-    IEnumerator DoSkill1(float dashDur)
-    {
-        //doingSkill = true;
-        //animator.Play("Skill1");
-        ////body.AddForce(new Vector2(transform.localScale.x * 700, 0));
-        //body.velocity = new Vector2(transform.localScale.x * dashSpeed, 0);
-        //skillICD = 3f;
-        float time = 0;
-        doingSkill = true;
-        skillICD = 3f;
-        animator.Play("Skill1");
-        while (dashDur > time)
-        {
-            time += Time.deltaTime;
-            body.velocity = new Vector2(dashSpeed.x * transform.localScale.x, 0);
-            yield return 0;
-        }
-        body.velocity = new Vector2(0, 0);
-        //yield return new WaitForSeconds(0.44f);
-        doingSkill = false;
+    //IEnumerator DoSkill1(float dashDur)
+    //{
+    //    //doingSkill = true;
+    //    //animator.Play("Skill1");
+    //    ////body.AddForce(new Vector2(transform.localScale.x * 700, 0));
+    //    //body.velocity = new Vector2(transform.localScale.x * dashSpeed, 0);
+    //    //skillICD = 3f;
+    //    float time = 0;
+    //    doingSkill = true;
+    //    skillICD = 3f;
+    //    animator.Play("Skill1");
+    //    while (dashDur > time)
+    //    {
+    //        time += Time.deltaTime;
+    //        body.velocity = new Vector2(dashSpeed.x * transform.localScale.x, 0);
+    //        yield return 0;
+    //    }
+    //    body.velocity = new Vector2(0, 0);
+    //    //yield return new WaitForSeconds(0.44f);
+    //    doingSkill = false;
 
-    }
-    public IEnumerator MoveToPosition(Vector3 position, float timeToMove)
+    //}
+    public IEnumerator DoSkill1(Vector3 position, float timeToMove)
     {
+        GetComponent<CircleCollider2D>().enabled = false;
+        invincible = true;
         doingSkill = true;
         var currentPos = transform.position;
         var t = 0f;
@@ -240,6 +249,8 @@ public class Player: MonoBehaviour
             transform.position = Vector3.Lerp(currentPos, position, t);
             yield return 0;
         }
+        GetComponent<CircleCollider2D>().enabled = true;
+        invincible = false;
         skillIHitBox.SetActive(false);
         body.velocity = new Vector2(0, 0);
         doingSkill = false;
@@ -288,5 +299,23 @@ public class Player: MonoBehaviour
         yield return new WaitForSeconds(time);
         upHitBox.SetActive(false);
         doingSkill = false;
+    }
+
+
+    public IEnumerator TakeDamage(float amount)
+    {
+        if (!invincible)
+        {
+            canMove = false;
+            invincible = true;
+            animator.Play("Damaged");
+            playerHealth -= amount;
+            body.velocity = new Vector2(0, body.velocity.y);
+            body.AddForce(new Vector2(transform.localScale.x * -1 * 400, 0));
+            yield return new WaitForSeconds(0.5f);
+            canMove = true;
+            invincible = false;
+        }
+        
     }
 }

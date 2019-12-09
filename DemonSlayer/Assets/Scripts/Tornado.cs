@@ -5,13 +5,15 @@ using UnityEngine;
 public class Tornado : MonoBehaviour
 {
     public float speed;
+    public float damage;
 
     Rigidbody2D body;
 
     float direction;
-    // Start is called before the first frame update
     void Awake()
     {
+        damage = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().baseAttack + 6;
+        Debug.Log(damage);
         body = GetComponent<Rigidbody2D>();
         if (transform.rotation.y != 0)
         {
@@ -30,6 +32,14 @@ public class Tornado : MonoBehaviour
         body.velocity = new Vector2(speed*direction, 0);
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x*50, 400));
+        }
+        
+    }
     IEnumerator DestroyTornado(float time)
     {
         yield return new WaitForSeconds(time);

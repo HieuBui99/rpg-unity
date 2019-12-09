@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1164911}
   m_Layer: 11
   m_Name: Jumping Body Collider
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,9 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13620f723b276f9419a0f90b596f6ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignore:
-    serializedVersion: 2
-    m_Bits: 0
+  enemyLayer: 0
 --- !u!70 &1164911
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -76,7 +74,7 @@ GameObject:
   - component: {fileID: 160414891}
   m_Layer: 12
   m_Name: Running Body Collider
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,9 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8971ccd5896ee44da8a0abb51fb42dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignore:
-    serializedVersion: 2
-    m_Bits: 0
+  enemyLayer: 0
 --- !u!1 &508359426
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 508359428}
   - component: {fileID: 508359427}
+  - component: {fileID: 828143219}
   m_Layer: 8
   m_Name: Skill 1 Hitbox
   m_TagString: HitBox
@@ -183,6 +180,19 @@ CircleCollider2D:
   m_Offset: {x: 0.14, y: 0}
   serializedVersion: 2
   m_Radius: 1.01
+--- !u!114 &828143219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508359426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba025a21e8b8c114ead7facc89c54b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &928008997
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +206,7 @@ GameObject:
   - component: {fileID: 928009000}
   m_Layer: 11
   m_Name: Jumping Head Collider
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,9 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13620f723b276f9419a0f90b596f6ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignore:
-    serializedVersion: 2
-    m_Bits: 0
+  enemyLayer: 0
 --- !u!58 &928009000
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -259,7 +267,7 @@ GameObject:
   - component: {fileID: 963369402}
   m_Layer: 12
   m_Name: Running Head Collider
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,9 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8971ccd5896ee44da8a0abb51fb42dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignore:
-    serializedVersion: 2
-    m_Bits: 0
+  enemyLayer: 0
 --- !u!61 &963369402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -392,7 +398,7 @@ GameObject:
   - component: {fileID: 1604312065}
   m_Layer: 10
   m_Name: Idle Head Collider
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,9 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcbcdd4196c154a80d3d80dfb35237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignore:
-    serializedVersion: 2
-    m_Bits: 2560
+  enemyLayer: 0
 --- !u!1 &1707371186
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801587046}
   - component: {fileID: 1801587045}
+  - component: {fileID: 1165101766}
   m_Layer: 8
   m_Name: Up Hitbox
   m_TagString: HitBox
@@ -569,6 +574,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1165101766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801587044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1487df18f313bc4ea1c40945e4a1b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &2116565332
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,8 +597,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2116565334}
   - component: {fileID: 2116565333}
+  - component: {fileID: 1381357355}
   m_Layer: 8
-  m_Name: Heavy Attack Hitbox
+  m_Name: Light Attack Hitbox
   m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,6 +645,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.73, y: 0.76}
   m_EdgeRadius: 0
+--- !u!114 &1381357355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116565332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d982b6244589d458c8219088506777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &511711627856337478
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +671,7 @@ GameObject:
   - component: {fileID: 1500936891}
   m_Layer: 10
   m_Name: Idle Body Collider
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -696,9 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcbcdd4196c154a80d3d80dfb35237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignore:
-    serializedVersion: 2
-    m_Bits: 512
+  enemyLayer: 0
 --- !u!1 &1320521077989485330
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,6 +880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 700
+  playerHealth: 5
+  baseAttack: 2
   groundCheck: {fileID: 1737000630}
   groundCheckLeft: {fileID: 1195361329}
   groundCheckRight: {fileID: 1239816609}
@@ -858,12 +890,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8704
   tornado: {fileID: 3550109177390043771, guid: 67618703bf52cd14fa321dae8a97b0de, type: 3}
-  lightHitBox: {fileID: 1383558209225140541}
-  heavyHitBox: {fileID: 2116565332}
+  lightHitBox: {fileID: 2116565332}
+  heavyHitBox: {fileID: 1383558209225140541}
   upHitBox: {fileID: 1801587044}
   skillIHitBox: {fileID: 508359426}
   isRunning: 0
   isGrounded: 1
+  invincible: 0
 --- !u!58 &1331818849
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -890,8 +923,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5951745344752015305}
   - component: {fileID: 8334755430504073710}
+  - component: {fileID: 711669478}
   m_Layer: 8
-  m_Name: Light Attack Hitbox
+  m_Name: Heavy Attack Hitbox
   m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -937,3 +971,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.92}
   m_EdgeRadius: 0
+--- !u!114 &711669478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383558209225140541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df32d7dd7672d4342a506d1a6bf22368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0

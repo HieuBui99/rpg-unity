@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2486108006508399061}
   - component: {fileID: 8856389024306009169}
   - component: {fileID: 1449216522301461563}
+  - component: {fileID: 204483810}
   m_Layer: 0
   m_Name: Tornado
-  m_TagString: Untagged
+  m_TagString: Tornado
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,3 +136,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  damage: 0
+--- !u!61 &204483810
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3550109177390043771}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.6232599, y: 0.86179}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.27472532, y: 0.13066144}
+    oldSize: {x: 2.7666667, y: 2.3333333}
+    newSize: {x: 2.7666667, y: 2.3333333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.7666667, y: 2.3333335}
+  m_EdgeRadius: 0

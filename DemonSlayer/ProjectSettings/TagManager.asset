@@ -7,6 +7,8 @@ TagManager:
   - Fire Point
   - Enemy
   - HitBox
+  - HurtBox
+  - Tornado
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - JumpingCollider
   - RunningCollider
   - Platform
-  - 
+  - Enemy
   - 
   - 
   - 
