@@ -24,7 +24,7 @@ public class ApplyDamage : MonoBehaviour
             }
             else if (collision.gameObject.name == "Skill 1 Hitbox")
             {
-               
+                damage = collision.gameObject.GetComponent<Skill1Behavior>().damage;
             }
         }
         else if (collision.gameObject.tag == "Tornado")

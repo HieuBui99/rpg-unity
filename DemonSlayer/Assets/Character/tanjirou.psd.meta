@@ -72,6 +72,13 @@ TextureImporter:
     21300134: up_attack_3
     21300136: up_attack_4
     21300138: up_attack_5
+    21300140: tanjirou_victory1
+    21300142: tanjirou_victory_2
+    21300144: tanjirou_victory_3
+    21300146: tanjirou_4
+    21300148: tanjirou_victory_4
+    21300150: crow1
+    21300152: crow2
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -1560,6 +1567,146 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 054152a535e3bee4a9a00424e0c7ccea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanjirou_victory1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 36
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a36ed6ddf7166f4ba23e4c6013d0c1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanjirou_victory_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 38
+        width: 35
+        height: 51
+      alignment: 9
+      pivot: {x: 0.47016776, y: 0.50345176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2bd5dea568f64d4ba7e15c6b0c23b90
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanjirou_victory_3
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 36
+        width: 35
+        height: 51
+      alignment: 9
+      pivot: {x: 0.47016776, y: 0.50345176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda1ed936ca48eb4dac6f798da47abdb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanjirou_4
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 512
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8533f155ac3fa05498190142aebdf328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tanjirou_victory_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 38
+        width: 35
+        height: 51
+      alignment: 9
+      pivot: {x: 0.47016776, y: 0.50345176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6fff9505e3aff4b933f4190cd841f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow1
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 61
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5050fc25c2660a41b2c80a9e0d72aee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow2
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 64
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1089bb0bdfb76ac48b746fa4b3dccc83
       vertices: []
       indices: 
       edges: []

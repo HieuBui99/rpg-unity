@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1164909}
   - component: {fileID: 1164910}
   - component: {fileID: 1164911}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Jumping Body Collider
   m_TagString: HurtBox
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 160414888}
   - component: {fileID: 160414889}
   - component: {fileID: 160414891}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Running Body Collider
   m_TagString: HurtBox
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 928008998}
   - component: {fileID: 928008999}
   - component: {fileID: 928009000}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Jumping Head Collider
   m_TagString: HurtBox
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 963369399}
   - component: {fileID: 963369401}
   - component: {fileID: 963369402}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: Running Head Collider
   m_TagString: HurtBox
   m_Icon: {fileID: 0}

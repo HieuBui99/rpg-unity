@@ -30,10 +30,11 @@ public class Player: MonoBehaviour
     public bool isRunning = false;
     public bool isGrounded = true;
     public bool invincible = false;
+    public bool canMove = true;
     bool doingSkill = false;
     bool facingRight = true;
     bool isAttacking = false;
-    bool canMove = true;
+    
 
     float upAttackCD = 0f;
     float skillICD = 0f;
@@ -41,9 +42,7 @@ public class Player: MonoBehaviour
     Vector2 dashSpeed = new Vector2(15, 0);
 
     int platformLayer;
-    int idleColliderLayer;
-    int jumpingColliderLayer;
-    int runningColliderLayer;
+    int colliderLayer;
     int playerLayer;
 
     void Awake()
@@ -60,9 +59,7 @@ public class Player: MonoBehaviour
         //    if (clip.name == "Skill2") Debug.Log(clip.length);
         //}
         platformLayer = LayerMask.NameToLayer("Platform");
-        idleColliderLayer = LayerMask.NameToLayer("IdleCollider");
-        jumpingColliderLayer = LayerMask.NameToLayer("JumpingCollider");
-        runningColliderLayer = LayerMask.NameToLayer("RunningCollider");
+        colliderLayer = LayerMask.NameToLayer("Collider");
         playerLayer = gameObject.layer;
     }
     void Update()
@@ -117,8 +114,8 @@ public class Player: MonoBehaviour
         {
             if (skillICD <=0)
             {
-                //StartCoroutine(DoSkill1(0.35f));
-                StartCoroutine(DoSkill1(transform.position + new Vector3(6f, 0, 0) * transform.localScale.x, 0.35f));
+                StartCoroutine(DoSkill1(0.35f));
+                //StartCoroutine(DoSkill1(transform.position + new Vector3(6f, 0, 0) * transform.localScale.x, 0.35f));
             }
         }
 
@@ -166,9 +163,7 @@ public class Player: MonoBehaviour
             body.AddForce(new Vector2(0, jumpForce));
         }
         Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, (vy > 0.0f));
-        Physics2D.IgnoreLayerCollision(jumpingColliderLayer, platformLayer, (vy > 0.0f));
-        Physics2D.IgnoreLayerCollision(runningColliderLayer, platformLayer, (vy > 0.0f));
-        Physics2D.IgnoreLayerCollision(idleColliderLayer, platformLayer, (vy > 0.0f));
+        Physics2D.IgnoreLayerCollision(colliderLayer, platformLayer, (vy > 0.0f));
 
     }
     void FixedUpdate()
@@ -212,50 +207,50 @@ public class Player: MonoBehaviour
     }
 
 
-    //IEnumerator DoSkill1(float dashDur)
-    //{
-    //    //doingSkill = true;
-    //    //animator.Play("Skill1");
-    //    ////body.AddForce(new Vector2(transform.localScale.x * 700, 0));
-    //    //body.velocity = new Vector2(transform.localScale.x * dashSpeed, 0);
-    //    //skillICD = 3f;
-    //    float time = 0;
-    //    doingSkill = true;
-    //    skillICD = 3f;
-    //    animator.Play("Skill1");
-    //    while (dashDur > time)
-    //    {
-    //        time += Time.deltaTime;
-    //        body.velocity = new Vector2(dashSpeed.x * transform.localScale.x, 0);
-    //        yield return 0;
-    //    }
-    //    body.velocity = new Vector2(0, 0);
-    //    //yield return new WaitForSeconds(0.44f);
-    //    doingSkill = false;
-
-    //}
-    public IEnumerator DoSkill1(Vector3 position, float timeToMove)
+    IEnumerator DoSkill1(float dashDur)
     {
-        GetComponent<CircleCollider2D>().enabled = false;
-        invincible = true;
+        //doingSkill = true;
+        //animator.Play("Skill1");
+        ////body.AddForce(new Vector2(transform.localScale.x * 700, 0));
+        //body.velocity = new Vector2(transform.localScale.x * dashSpeed, 0);
+        //skillICD = 3f;
+        float time = 0;
         doingSkill = true;
-        var currentPos = transform.position;
-        var t = 0f;
+        skillICD = 3f;
         animator.Play("Skill1");
-        skillIHitBox.SetActive(true);
-        while (t < 1)
+        while (dashDur > time)
         {
-            t += Time.deltaTime / timeToMove;
-            transform.position = Vector3.Lerp(currentPos, position, t);
+            time += Time.deltaTime;
+            body.velocity = new Vector2(dashSpeed.x * transform.localScale.x, 0);
             yield return 0;
         }
-        GetComponent<CircleCollider2D>().enabled = true;
-        invincible = false;
-        skillIHitBox.SetActive(false);
         body.velocity = new Vector2(0, 0);
+        //yield return new WaitForSeconds(0.44f);
         doingSkill = false;
-        skillICD = 3f;
+
     }
+    //IEnumerator DoSkill1(Vector3 position, float timeToMove)
+    //{
+    //    GetComponent<CircleCollider2D>().enabled = false;
+    //    invincible = true;
+    //    doingSkill = true;
+    //    var currentPos = transform.position;
+    //    var t = 0f;
+    //    animator.Play("Skill1");
+    //    skillIHitBox.SetActive(true);
+    //    while (t < 1)
+    //    {
+    //        t += Time.deltaTime / timeToMove;
+    //        transform.position = Vector3.Lerp(currentPos, position, t);
+    //        yield return 0;
+    //    }
+    //    GetComponent<CircleCollider2D>().enabled = true;
+    //    invincible = false;
+    //    skillIHitBox.SetActive(false);
+    //    body.velocity = new Vector2(0, 0);
+    //    doingSkill = false;
+    //    skillICD = 3f;
+    //}
 
     //Perform skill 2
     IEnumerator DoSkill2()
@@ -308,11 +303,20 @@ public class Player: MonoBehaviour
         {
             canMove = false;
             invincible = true;
-            animator.Play("Damaged");
             playerHealth -= amount;
-            body.velocity = new Vector2(0, body.velocity.y);
-            body.AddForce(new Vector2(transform.localScale.x * -1 * 400, 0));
-            yield return new WaitForSeconds(0.5f);
+            if (playerHealth <= 0)
+            {
+                animator.Play("Die");
+                yield return new WaitForSeconds(2f);
+                GameManager.gm.KillPlayer(this);
+            }
+            else
+            {
+                animator.Play("Damaged");
+                body.velocity = new Vector2(0, body.velocity.y);
+                body.AddForce(new Vector2(transform.localScale.x * -1 * 400, 0));
+                yield return new WaitForSeconds(0.5f);
+            }
             canMove = true;
             invincible = false;
         }
