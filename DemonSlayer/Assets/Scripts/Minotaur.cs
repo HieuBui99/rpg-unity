@@ -38,38 +38,44 @@ public class Minotaur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player == null)
+        try
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        //distToPlayer = Vector2.Distance(transform.position, player.position);
-        //if (distToPlayer < attackRadius)
-        //{
-        //    if (Time.time >= attackTime)
-        //    {
-        //        StartCoroutine(Attack());
-        //    }
-        //}
-        if (player.position.x > chaseBoundary[0].position.x && player.position.x < chaseBoundary[1].position.x && !attacking)
-        {
-            Flip();
-            moving = true;
-            animator.SetBool("Moving", moving);
-            if (transform.position.x < player.position.x)
+            if (player == null)
             {
-                body.velocity = new Vector2(moveSpeed, 0);
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+                return;
             }
-            else if (transform.position.x > player.position.x)
+            //distToPlayer = Vector2.Distance(transform.position, player.position);
+            //if (distToPlayer < attackRadius)
+            //{
+            //    if (Time.time >= attackTime)
+            //    {
+            //        StartCoroutine(Attack());
+            //    }
+            //}
+            if (player.position.x > chaseBoundary[0].position.x && player.position.x < chaseBoundary[1].position.x && !attacking)
             {
-                body.velocity = new Vector2(-moveSpeed, 0);
+                Flip();
+                moving = true;
+                animator.SetBool("Moving", moving);
+                if (transform.position.x < player.position.x)
+                {
+                    body.velocity = new Vector2(moveSpeed, 0);
+                }
+                else if (transform.position.x > player.position.x)
+                {
+                    body.velocity = new Vector2(-moveSpeed, 0);
+                }
+            }
+            else
+            {
+                moving = false;
+                animator.SetBool("Moving", moving);
+                body.velocity = new Vector2(0, 0);
             }
         }
-        else
-        {
-            moving = false;
-            animator.SetBool("Moving", moving);
-            body.velocity = new Vector2(0, 0);
-        }
+        catch { }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)

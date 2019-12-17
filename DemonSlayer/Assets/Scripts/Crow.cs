@@ -11,6 +11,7 @@ public class Crow : MonoBehaviour
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
+            return;
         }
     }
     void Update()

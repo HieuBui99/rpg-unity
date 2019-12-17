@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 1320521077989485353}
   - component: {fileID: 1320521077989485334}
   - component: {fileID: 1331818849}
+  - component: {fileID: 93360722}
   m_Layer: 8
   m_Name: Tanjirou
   m_TagString: Player
@@ -813,7 +814,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -379423231
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d6b339051139644abf3f2261946236b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -878,10 +879,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4da8671f1776af41a229e827ca3deca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 7
   jumpForce: 700
-  playerHealth: 5
+  maxHealth: 10
   baseAttack: 2
+  currentHealth: 0
   groundCheck: {fileID: 1737000630}
   groundCheckLeft: {fileID: 1195361329}
   groundCheckRight: {fileID: 1239816609}
@@ -897,6 +899,7 @@ MonoBehaviour:
   isRunning: 0
   isGrounded: 1
   invincible: 0
+  canMove: 1
 --- !u!58 &1331818849
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -913,6 +916,19 @@ CircleCollider2D:
   m_Offset: {x: -0.25, y: -0.44}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &93360722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320521077989485330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c25cd66998dae74da51428d0688c60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crow: {fileID: 591310418722282397, guid: a5971e99bacae484c973baea0d83e6dd, type: 3}
 --- !u!1 &1383558209225140541
 GameObject:
   m_ObjectHideFlags: 0

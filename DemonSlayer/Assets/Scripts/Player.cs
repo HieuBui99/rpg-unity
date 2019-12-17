@@ -6,8 +6,9 @@ public class Player: MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float jumpForce = 100f;
-    public float playerHealth = 5f;
+    public float maxHealth = 9f;
     public float baseAttack = 2f;
+    public float currentHealth;
 
     public Transform groundCheck;
     public Transform groundCheckLeft;
@@ -61,6 +62,7 @@ public class Player: MonoBehaviour
         platformLayer = LayerMask.NameToLayer("Platform");
         colliderLayer = LayerMask.NameToLayer("Collider");
         playerLayer = gameObject.layer;
+        currentHealth = maxHealth;
     }
     void Update()
     {
@@ -216,15 +218,19 @@ public class Player: MonoBehaviour
         //skillICD = 3f;
         float time = 0;
         doingSkill = true;
+        invincible = true;
         skillICD = 3f;
         animator.Play("Skill1");
+        skillIHitBox.SetActive(true);
         while (dashDur > time)
         {
             time += Time.deltaTime;
             body.velocity = new Vector2(dashSpeed.x * transform.localScale.x, 0);
             yield return 0;
         }
+        skillIHitBox.SetActive(false);
         body.velocity = new Vector2(0, 0);
+        invincible = false;
         //yield return new WaitForSeconds(0.44f);
         doingSkill = false;
 
@@ -303,8 +309,8 @@ public class Player: MonoBehaviour
         {
             canMove = false;
             invincible = true;
-            playerHealth -= amount;
-            if (playerHealth <= 0)
+            currentHealth -= amount;
+            if (currentHealth <= 0)
             {
                 animator.Play("Die");
                 yield return new WaitForSeconds(2f);
