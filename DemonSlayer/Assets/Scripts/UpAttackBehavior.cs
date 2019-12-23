@@ -7,7 +7,8 @@ public class UpAttackBehavior : MonoBehaviour
     public float damage;
     void Awake()
     {
-        damage = GetComponentInParent<Player>().baseAttack + 1;
+        damage = GetComponentInParent<Player>().currentAttack + 10;
+        //damage = Player.baseAttack + 10;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

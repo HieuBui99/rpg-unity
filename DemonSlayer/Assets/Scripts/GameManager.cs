@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
-        playerMaxHealth = player.maxHealth;
+        playerMaxHealth = Player.maxHealth;
         playerCurrentHealth = player.currentHealth;
         coin = GoldManager.GetGold();
         coinText.text = coin.ToString();
@@ -125,10 +125,8 @@ public class GameManager : MonoBehaviour
     public void LoadVictoryScreen()
     {
         victoryScreen.SetActive(true);
-        Debug.Log(coin);
         GoldManager.SaveGold(coin);
         PlayerPrefs.SetInt("Current Level", nextLevel);
-        Debug.Log("Coin saved");
     }
     public void LoadNextLevel()
     {
@@ -146,7 +144,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-                playerMaxHealth = player.maxHealth;
+                playerMaxHealth = Player.maxHealth;
                 playerCurrentHealth = player.currentHealth;
             }
         }

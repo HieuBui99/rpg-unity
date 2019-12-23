@@ -9,7 +9,8 @@ public class HeavyAttackBehavior : MonoBehaviour
     public float damage;
     void Awake()
     {
-        damage = GetComponentInParent<Player>().baseAttack + 2;
+        //damage = GetComponentInParent<Player>().baseAttack + 2;
+        damage = Player.baseAttack + 10;
     }
 
 }

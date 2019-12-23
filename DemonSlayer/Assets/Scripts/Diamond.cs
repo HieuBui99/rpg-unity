@@ -9,7 +9,6 @@ public class Diamond : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Viecory");
             collision.gameObject.GetComponent<PlayerVictory>().Victory();
             Destroy(gameObject);
         }

@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skeleton : MonoBehaviour
+public class Skeleton : Enemy
 {
-    public float moveSpeed = 2f;
-    public float damage = 1f;
-    public float skeletonHealth = 5f;
+    ////public float moveSpeed = 2f;
+    ////public float damage = 1f;
+    //public float health = 5f;
 
     public GameObject[] wayPoints;
     public float waitAtWavePointTime = 1f;
-
 
     Rigidbody2D body;
     Animator animator;
@@ -61,7 +60,7 @@ public class Skeleton : MonoBehaviour
         }
     }
 
-    void Move()
+    public override void Move()
     {
         if (moving)
         {
@@ -83,26 +82,27 @@ public class Skeleton : MonoBehaviour
         }
     }
 
-    void Flip()
+    public override void Flip()
     {
         Vector3 localScale = transform.localScale;
 
-        if ((dx>0) && (localScale.x<0))
+        if ((dx > 0) && (localScale.x < 0))
         {
             localScale.x *= -1;
         }
-        else if ((dx<0) && (localScale.x>0))
+        else if ((dx < 0) && (localScale.x > 0))
         {
             localScale.x *= -1;
         }
         transform.localScale = localScale;
+
     }
 
-    public void TakeDamage(float amount)
+    public override void TakeDamage(float amount)
     {
         animator.Play("SkeletonDamaged");
-        skeletonHealth -= amount;
-        if (skeletonHealth <= 0)
+        health -= amount;
+        if (health <= 0)
         {
             StartCoroutine(KillSkeleton());
         }

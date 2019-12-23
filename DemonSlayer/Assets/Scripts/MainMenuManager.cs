@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject levelSelectButton;
@@ -11,8 +12,6 @@ public class MainMenuManager : MonoBehaviour
     void Awake()
     {
         currentLevel = PlayerPrefs.GetInt("Current Level", LevelManager.levelBuildIndex);
-        Debug.Log(currentLevel);
-        Debug.Log(LevelManager.levelBuildIndex);
         if  (currentLevel != LevelManager.levelBuildIndex)
         {
             levelSelectButton.SetActive(true);
@@ -33,12 +32,18 @@ public class MainMenuManager : MonoBehaviour
     }
     public void ResetPlayerPref()
     {
+        File.Delete(Application.persistentDataPath + "/shop.dat");
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("LevelSelect");
+  
     }
     public void LoadLevelSelector()
     {
         SceneManager.LoadScene("LevelSelect");
+    }
+    public void LoadShop()
+    {
+        SceneManager.LoadScene("Shop");
     }
     public void QuitGame()
     {

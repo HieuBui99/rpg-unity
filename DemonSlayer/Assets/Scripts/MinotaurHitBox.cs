@@ -7,7 +7,7 @@ public class MinotaurHitBox : MonoBehaviour
     float damage;
     void Awake()
     {
-        damage = gameObject.GetComponent<Minotaur>().damage;
+        damage = gameObject.GetComponentInParent<Minotaur>().damage;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +15,6 @@ public class MinotaurHitBox : MonoBehaviour
         {
             Player player = collision.gameObject.GetComponentInParent<Player>();
             StartCoroutine(player.TakeDamage(damage));
-            Debug.Log(player.invincible);
         }
     }
 }

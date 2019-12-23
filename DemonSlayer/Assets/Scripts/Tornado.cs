@@ -12,8 +12,8 @@ public class Tornado : MonoBehaviour
     float direction;
     void Awake()
     {
-        damage = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().baseAttack + 6;
-        Debug.Log(damage);
+        damage = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().currentAttack + 50;
+        //damage = Player.baseAttack + 50;
         body = GetComponent<Rigidbody2D>();
         if (transform.rotation.y != 0)
         {

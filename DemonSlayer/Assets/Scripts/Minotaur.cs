@@ -3,17 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minotaur : MonoBehaviour
+public class Minotaur : Enemy
 {
-    public float moveSpeed = 2f;
-    public float damage = 2f;
-    public float minotaurHealth = 10f;
+    //public float moveSpeed = 2f;
+    //public float damage = 2f;
+    //public float health = 10f;
     public float attackRadius = 2f;
 
     public Transform[] chaseBoundary;
     public Transform player;
 
-    public GameObject hitBox;
 
     Rigidbody2D body;
     Animator animator;
@@ -32,7 +31,6 @@ public class Minotaur : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        if (hitBox != null) hitBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,34 +43,15 @@ public class Minotaur : MonoBehaviour
                 player = GameObject.FindGameObjectWithTag("Player").transform;
                 return;
             }
-            //distToPlayer = Vector2.Distance(transform.position, player.position);
-            //if (distToPlayer < attackRadius)
-            //{
-            //    if (Time.time >= attackTime)
-            //    {
-            //        StartCoroutine(Attack());
-            //    }
-            //}
-            if (player.position.x > chaseBoundary[0].position.x && player.position.x < chaseBoundary[1].position.x && !attacking)
+            distToPlayer = Vector2.Distance(transform.position, player.position);
+            if (distToPlayer < attackRadius)
             {
-                Flip();
-                moving = true;
-                animator.SetBool("Moving", moving);
-                if (transform.position.x < player.position.x)
+                if (Time.time >= attackTime)
                 {
-                    body.velocity = new Vector2(moveSpeed, 0);
-                }
-                else if (transform.position.x > player.position.x)
-                {
-                    body.velocity = new Vector2(-moveSpeed, 0);
+                    StartCoroutine(Attack());
                 }
             }
-            else
-            {
-                moving = false;
-                animator.SetBool("Moving", moving);
-                body.velocity = new Vector2(0, 0);
-            }
+            Move();
         }
         catch { }
         
@@ -99,7 +78,7 @@ public class Minotaur : MonoBehaviour
     }
 
 
-    void Flip()
+    public override void Flip()
     {
         Vector3 localScale = transform.localScale;
         if (body.velocity.x > 0 && localScale.x < 0)
@@ -113,11 +92,35 @@ public class Minotaur : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    public void TakeDamage(float amount)
+    public override void Move()
+    {
+        if (player.position.x > chaseBoundary[0].position.x && player.position.x < chaseBoundary[1].position.x && !attacking)
+        {
+            Flip();
+            moving = true;
+            animator.SetBool("Moving", moving);
+            if (transform.position.x < player.position.x)
+            {
+                body.velocity = new Vector2(moveSpeed, 0);
+            }
+            else if (transform.position.x > player.position.x)
+            {
+                body.velocity = new Vector2(-moveSpeed, 0);
+            }
+        }
+        else
+        {
+            moving = false;
+            animator.SetBool("Moving", moving);
+            body.velocity = new Vector2(0, 0);
+        }
+    }
+
+    public override void TakeDamage(float amount)
     {
         animator.Play("MinotaurDamaged");
-        minotaurHealth -= amount;
-        if (minotaurHealth <= 0)
+        health -= amount;
+        if (health <= 0)
         {
             StartCoroutine(KillMinotaur());
         }
@@ -131,9 +134,6 @@ public class Minotaur : MonoBehaviour
         attacking = true;
         animator.Play("MinotaurAttack");
         yield return new WaitForSeconds(0.7f);
-        hitBox.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        hitBox.SetActive(false);
         attacking = false;
     }
     IEnumerator KillMinotaur()

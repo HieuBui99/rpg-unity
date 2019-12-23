@@ -7,7 +7,8 @@ public class Skill1Behavior : MonoBehaviour
     public float damage;
     void Awake()
     {
-        damage = GetComponentInParent<Player>().baseAttack + 5;
+        damage = GetComponentInParent<Player>().currentAttack + 30;
+        //damage = Player.baseAttack + 30;
     }
 
 }

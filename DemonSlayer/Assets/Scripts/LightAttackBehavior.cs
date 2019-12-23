@@ -8,7 +8,8 @@ public class LightAttackBehavior : MonoBehaviour
     public float damage;
     void Awake()
     {
-        damage = GetComponentInParent<Player>().baseAttack;
+        damage = GetComponentInParent<Player>().currentAttack;
+        //damage = Player.baseAttack;
     }
    
 }

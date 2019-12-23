@@ -6,9 +6,11 @@ public class Player: MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float jumpForce = 100f;
-    public float maxHealth = 9f;
-    public float baseAttack = 2f;
+    public static float maxHealth = 100f;
+    public static float baseAttack = 100f;
     public float currentHealth;
+    public float currentAttack;
+    int bonusAttack;
 
     public Transform groundCheck;
     public Transform groundCheckLeft;
@@ -63,6 +65,10 @@ public class Player: MonoBehaviour
         colliderLayer = LayerMask.NameToLayer("Collider");
         playerLayer = gameObject.layer;
         currentHealth = maxHealth;
+        bonusAttack = PlayerPrefs.GetInt("Bonus Attack", 0);
+        currentAttack = baseAttack + bonusAttack;
+        Debug.Log(bonusAttack);
+        Debug.Log(currentAttack);
     }
     void Update()
     {
