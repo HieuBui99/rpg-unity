@@ -53,10 +53,38 @@ public class Skeleton : Enemy
             StartCoroutine(player.TakeDamage(damage));
         }
 
-        else if (collision.gameObject.tag=="HitBox" || collision.gameObject.tag=="Tornado")
+        else if (collision.gameObject.tag=="HitBox" || collision.gameObject.tag=="Tornado" || collision.gameObject.tag=="Thunder")
         {
-            float damage = GetComponent<ApplyDamage>().damage;
-            TakeDamage(damage);
+            float damageTaken;
+            if (collision.gameObject.tag == "HitBox")
+            {
+                if (collision.gameObject.name == "Light Attack Hitbox")
+                {
+                    damageTaken = collision.gameObject.GetComponent<LightAttackBehavior>().damage;
+                }
+                else if (collision.gameObject.name == "Heavy Attack Hitbox")
+                {
+                    damageTaken = collision.gameObject.GetComponent<HeavyAttackBehavior>().damage;
+                }
+                else if (collision.gameObject.name == "Up Hitbox")
+                {
+                    damageTaken = collision.gameObject.GetComponent<UpAttackBehavior>().damage;
+                }
+                else
+                {
+                    damageTaken = collision.gameObject.GetComponent<Skill1Behavior>().damage;
+                }
+            }
+            else if (collision.gameObject.tag == "Tornado")
+            {
+                damageTaken = collision.gameObject.GetComponent<Tornado>().damage;
+            }
+            else 
+            {
+                damageTaken = collision.gameObject.GetComponent<Thunder>().damage;
+                Debug.Log(damageTaken);
+            }
+            TakeDamage(damageTaken);
         }
     }
 
@@ -110,6 +138,7 @@ public class Skeleton : Enemy
 
     IEnumerator KillSkeleton()
     {
+        GameManager.gm.CollectCoin(5);
         GetComponent<BoxCollider2D>().enabled = false;
         animator.Play("SkeletonDie");
         yield return new WaitForSeconds(0.7f);

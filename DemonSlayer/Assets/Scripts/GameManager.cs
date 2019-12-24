@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject victoryScreen;
     public GameObject gameOverScreen;
+    public MusicPlayer music;
 
     public Text coinText;
     int coin;
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
     }
     public void ResumeGame()
     {
+        music.SaveAudio();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;

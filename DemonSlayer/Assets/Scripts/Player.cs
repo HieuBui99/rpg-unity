@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Player: MonoBehaviour
 {
@@ -48,6 +49,10 @@ public class Player: MonoBehaviour
     int colliderLayer;
     int playerLayer;
 
+    public AudioSource source;
+    public AudioClip swingSFX;
+    public AudioClip tornadoSFX;
+    
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -67,8 +72,7 @@ public class Player: MonoBehaviour
         currentHealth = maxHealth;
         bonusAttack = PlayerPrefs.GetInt("Bonus Attack", 0);
         currentAttack = baseAttack + bonusAttack;
-        Debug.Log(bonusAttack);
-        Debug.Log(currentAttack);
+        if (source == null) source = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -267,6 +271,7 @@ public class Player: MonoBehaviour
     //Perform skill 2
     IEnumerator DoSkill2()
     {
+        source.PlayOneShot(tornadoSFX);
         body.velocity = new Vector2(0, 0);
         doingSkill = true;
         animator.Play("Skill2");
@@ -286,6 +291,7 @@ public class Player: MonoBehaviour
 
     IEnumerator LightAttackCoolDown (float time)
     {
+        source.PlayOneShot(swingSFX);
         lightHitBox.SetActive(true);
         yield return new WaitForSeconds(time);
         lightHitBox.SetActive(false);
@@ -294,6 +300,7 @@ public class Player: MonoBehaviour
 
     IEnumerator HeavyAttackCoolDown(float time)
     {
+        source.PlayOneShot(swingSFX);
         heavyHitBox.SetActive(true);
         yield return new WaitForSeconds(time);
         heavyHitBox.SetActive(false);

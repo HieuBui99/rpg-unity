@@ -23,6 +23,7 @@ public class Minotaur : Enemy
     float attackTime = 0f;
     float timeBetweenAttack = 2.5f;
 
+    public GameObject diamondPrefab;
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -72,8 +73,36 @@ public class Minotaur : Enemy
 
         else if (collision.gameObject.tag == "HitBox" || collision.gameObject.tag == "Tornado")
         {
-            float damage = GetComponent<ApplyDamage>().damage;
-            TakeDamage(damage);
+            float damageTaken;
+            if (collision.gameObject.tag == "HitBox")
+            {
+                if (collision.gameObject.name == "Light Attack Hitbox")
+                {
+                    damageTaken = collision.gameObject.GetComponent<LightAttackBehavior>().damage;
+                }
+                else if (collision.gameObject.name == "Heavy Attack Hitbox")
+                {
+                    damageTaken = collision.gameObject.GetComponent<HeavyAttackBehavior>().damage;
+                }
+                else if (collision.gameObject.name == "Up Hitbox")
+                {
+                    damageTaken = collision.gameObject.GetComponent<UpAttackBehavior>().damage;
+                }
+                else
+                {
+                    damageTaken = collision.gameObject.GetComponent<Skill1Behavior>().damage;
+                }
+            }
+            else if (collision.gameObject.tag == "Tornado")
+            {
+                damageTaken = collision.gameObject.GetComponent<Tornado>().damage;
+            }
+            else
+            {
+                damageTaken = collision.gameObject.GetComponent<Thunder>().damage;
+                Debug.Log(damageTaken);
+            }
+            TakeDamage(damageTaken);
         }
     }
 
@@ -138,6 +167,8 @@ public class Minotaur : Enemy
     }
     IEnumerator KillMinotaur()
     {
+        if (diamondPrefab != null) Instantiate(diamondPrefab, new Vector3(transform.position.x, transform.position.y - 3, transform.position.z), Quaternion.identity);
+        GameManager.gm.CollectCoin(10);
         GetComponent<BoxCollider2D>().enabled = false;
         animator.Play("MinotaurDie");
         yield return new WaitForSeconds(1f);

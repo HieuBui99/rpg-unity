@@ -9,6 +9,7 @@ public class Diamond : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameManager.gm.CollectCoin(50);
             collision.gameObject.GetComponent<PlayerVictory>().Victory();
             Destroy(gameObject);
         }

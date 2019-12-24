@@ -165,7 +165,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1351460183
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300240, guid: 2bee0e6f74265b24c835798bb0bb4dd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -247,13 +247,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  damage: 2
-  health: 300
+  damage: 15
+  health: 500
   attackRadius: 3
   chaseBoundary:
   - {fileID: 8462893863717710089}
   - {fileID: 8462893862942407861}
   player: {fileID: 0}
+  diamondPrefab: {fileID: 0}
 --- !u!114 &8462893862272617667
 MonoBehaviour:
   m_ObjectHideFlags: 0

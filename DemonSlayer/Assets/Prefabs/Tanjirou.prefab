@@ -132,6 +132,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLayer: 0
+--- !u!1 &470901654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 470901655}
+  m_Layer: 8
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &470901655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470901654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.719, y: -0.737, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2991501744688924921}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508359426
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  source: {fileID: 0}
+  slashSFX: {fileID: 8300000, guid: 33cb0dfca9cf2e8499f4ad13e64f78eb, type: 3}
 --- !u!1 &928008997
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  source: {fileID: 0}
+  slashSFX: {fileID: 8300000, guid: 33cb0dfca9cf2e8499f4ad13e64f78eb, type: 3}
 --- !u!1 &2116565332
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +692,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  source: {fileID: 0}
+  slashSFX: {fileID: 8300000, guid: 40c3017e385a0794dbc8b32d5f8b8a3e, type: 3}
 --- !u!1 &511711627856337478
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +780,7 @@ GameObject:
   - component: {fileID: 1320521077989485334}
   - component: {fileID: 1331818849}
   - component: {fileID: 93360722}
+  - component: {fileID: 1308252407}
   m_Layer: 8
   m_Name: Tanjirou
   m_TagString: Player
@@ -776,6 +813,7 @@ Transform:
   - {fileID: 2116565334}
   - {fileID: 1801587046}
   - {fileID: 508359428}
+  - {fileID: 2991501744688924921}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -881,9 +919,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   jumpForce: 700
-  maxHealth: 10
-  baseAttack: 2
   currentHealth: 0
+  currentAttack: 0
   groundCheck: {fileID: 1737000630}
   groundCheckLeft: {fileID: 1195361329}
   groundCheckRight: {fileID: 1239816609}
@@ -900,6 +937,9 @@ MonoBehaviour:
   isGrounded: 1
   invincible: 0
   canMove: 1
+  source: {fileID: 5915913649363839332, guid: cf6c6d3f141d7d840829d1a6c83d7b5a, type: 3}
+  swingSFX: {fileID: 8300000, guid: 72d107320a5e48d41a9b629a5d837152, type: 3}
+  tornadoSFX: {fileID: 8300000, guid: 5ae88e7f2a9eb624183cddd760906817, type: 3}
 --- !u!58 &1331818849
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -929,6 +969,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crow: {fileID: 591310418722282397, guid: a5971e99bacae484c973baea0d83e6dd, type: 3}
+--- !u!114 &1308252407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320521077989485330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285dff1531464d54493228bc73979336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 2991501744688924921}
+  firePoint: {fileID: 470901655}
+  allyPrefab: {fileID: 8526526785901187633, guid: 536aca5a05f3ce548b907147893b190c,
+    type: 3}
+  thunderFX: {fileID: 155464616616258645, guid: 4767d0ab62ea8784481e9ad3527d3047,
+    type: 3}
+  source: {fileID: 0}
+  thunder: {fileID: 8300000, guid: 81e7823a18f20564380ce11704900e12, type: 3}
 --- !u!1 &1383558209225140541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,3 +1060,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  source: {fileID: 0}
+  slashSFX: {fileID: 8300000, guid: 40c3017e385a0794dbc8b32d5f8b8a3e, type: 3}
+--- !u!1 &8511288125303075320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2991501744688924921}
+  m_Layer: 8
+  m_Name: AllySpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2991501744688924921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8511288125303075320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6, y: 0.029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 470901655}
+  m_Father: {fileID: 1320521077989485335}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

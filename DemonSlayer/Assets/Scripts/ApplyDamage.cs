@@ -31,6 +31,10 @@ public class ApplyDamage : MonoBehaviour
         {
             damage = collision.gameObject.GetComponent<Tornado>().damage;
         }
+        else if (collision.gameObject.tag == "Thunder")
+        {
+            damage = collision.gameObject.GetComponent<Thunder>().damage;
+        }
         
     }
 }
