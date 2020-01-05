@@ -21,6 +21,7 @@ public class ShopManager : MonoBehaviour
     void Awake()
     {
         shop = this;
+        gold = GoldManager.GetGold() + 1000;
         currentWeaponID = PlayerPrefs.GetInt("Current Weapon", 0);
         LoadShop();
         DisplayShop();
@@ -28,8 +29,7 @@ public class ShopManager : MonoBehaviour
     }
     void Update()
     {
-        goldDisplay.text = gold.ToString();
-        
+        goldDisplay.text = gold.ToString();      
     }
 
     void DisplayShop()
@@ -40,7 +40,7 @@ public class ShopManager : MonoBehaviour
             ShopSlot shopSlot = slot.GetComponent<ShopSlot>();
             shopSlot.itemName.text = weaponList[i].name;
             shopSlot.price.text = "Price: " + weaponList[i].price.ToString();
-            shopSlot.bonusStat.text = "+" + weaponList[i].bonusAttack.ToString() + "Attack";
+            shopSlot.bonusStat.text = "+" + weaponList[i].bonusAttack.ToString() + " Attack";
             shopSlot.itemImage.sprite =Resources.Load<Sprite>(weaponList[i].spriteName);
             shopSlot.buyButton.GetComponent<BuyButton>().weaponID = weaponList[i].weaponID;
             shopSlot.itemID = weaponList[i].weaponID;
@@ -67,6 +67,7 @@ public class ShopManager : MonoBehaviour
 
     public void BackButton()
     {
+        //GoldManager.SaveGold(gold);
         SceneManager.LoadScene("MainMenu");
     }
     public void SaveShopState()
@@ -92,5 +93,6 @@ public class ShopManager : MonoBehaviour
             weaponList = (List<Weapon>)bf.Deserialize(stream);
             stream.Close();
         }
+  
     }
 }

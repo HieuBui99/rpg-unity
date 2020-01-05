@@ -226,6 +226,7 @@ public class Player: MonoBehaviour
         ////body.AddForce(new Vector2(transform.localScale.x * 700, 0));
         //body.velocity = new Vector2(transform.localScale.x * dashSpeed, 0);
         //skillICD = 3f;
+        GetComponent<CircleCollider2D>().enabled = false;
         float time = 0;
         doingSkill = true;
         invincible = true;
@@ -238,6 +239,7 @@ public class Player: MonoBehaviour
             body.velocity = new Vector2(dashSpeed.x * transform.localScale.x, 0);
             yield return 0;
         }
+        GetComponent<CircleCollider2D>().enabled = true;
         skillIHitBox.SetActive(false);
         body.velocity = new Vector2(0, 0);
         invincible = false;

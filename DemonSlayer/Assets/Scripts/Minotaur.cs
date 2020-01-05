@@ -71,7 +71,7 @@ public class Minotaur : Enemy
             StartCoroutine(player.TakeDamage(damage));
         }
 
-        else if (collision.gameObject.tag == "HitBox" || collision.gameObject.tag == "Tornado")
+        else if (collision.gameObject.tag == "HitBox" || collision.gameObject.tag == "Tornado" || collision.gameObject.tag == "Thunder")
         {
             float damageTaken;
             if (collision.gameObject.tag == "HitBox")

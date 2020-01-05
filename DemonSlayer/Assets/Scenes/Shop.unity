@@ -290,20 +290,26 @@ MonoBehaviour:
   - name: Wooded Sword
     weaponID: 1
     spriteName: 1
-    price: 10
-    bonusAttack: 5
+    price: 200
+    bonusAttack: 60
     bought: 0
   - name: Steel Sword
     weaponID: 2
     spriteName: 2
-    price: 15
-    bonusAttack: 10
+    price: 250
+    bonusAttack: 100
     bought: 0
   - name: Cutlass
     weaponID: 3
     spriteName: 3
-    price: 30
-    bonusAttack: 12
+    price: 350
+    bonusAttack: 150
+    bought: 0
+  - name: Golden Sword
+    weaponID: 4
+    spriteName: 4
+    price: 500
+    bonusAttack: 200
     bought: 0
   shopSlotList: []
   buyButtonList: []
@@ -457,7 +463,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 943005526}
   m_HandleRect: {fileID: 943005525}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2117,7 +2123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 584, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1123046376

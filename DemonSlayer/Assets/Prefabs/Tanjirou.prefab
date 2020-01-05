@@ -937,7 +937,7 @@ MonoBehaviour:
   isGrounded: 1
   invincible: 0
   canMove: 1
-  source: {fileID: 5915913649363839332, guid: cf6c6d3f141d7d840829d1a6c83d7b5a, type: 3}
+  source: {fileID: 0}
   swingSFX: {fileID: 8300000, guid: 72d107320a5e48d41a9b629a5d837152, type: 3}
   tornadoSFX: {fileID: 8300000, guid: 5ae88e7f2a9eb624183cddd760906817, type: 3}
 --- !u!58 &1331818849

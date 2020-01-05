@@ -13,9 +13,5 @@ public class Thunder : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        Debug.Log("asda");
-    }
 
 }

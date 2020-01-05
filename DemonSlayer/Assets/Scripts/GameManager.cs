@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public Transform playerPrefab;
     public Transform respawnPoint;
-    public float respawnDelay = 2f;
+    public float respawnDelay = 1f;
 
     [SerializeField]
     Player player;
